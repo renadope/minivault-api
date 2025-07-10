@@ -105,6 +105,7 @@ curl -N -X POST http://localhost:4000/generate-stream \
 Import the `postman_collection.json` file into Postman for easy API testing with pre-configured requests.
 
 ## Logging
+If you don't see the `logs/log.jsonl`, it will be created on the initial ```go run . ``` command. 
 
 All API interactions are automatically logged to `logs/log.jsonl` in JSON Lines format:
 
