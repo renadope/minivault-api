@@ -33,7 +33,7 @@ func main() {
 
 	flag.IntVar(&port, "port", 4000, "Api server port")
 	flag.StringVar(&baseLLMUrl, "llm-url", "http://localhost:11434", "Base URL for the LLM service (e.g., http://localhost:11434 for local Ollama instance)")
-	flag.StringVar(&model, "llm-model", "llama3.2:1b", "The name of the LLM Model you would like to use")
+	flag.StringVar(&model, "llm-name", "llama3.2:1b", "The name of the LLM you would like to use")
 	flag.Parse()
 
 	llmConfig := LLMConfig{

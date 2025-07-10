@@ -84,7 +84,7 @@ go run . -port=8080 -llm-url="http://localhost:11434" -llm-model="mistral:7b"
 **Available flags:**
 - `-port`: API server port (default: 4000)
 - `-llm-url`: Ollama base URL (default: http://localhost:11434)
-- `-llm-model`: Model name to use (default: llama3.2:1b)
+- `-llm-name`: Model name to use (default: llama3.2:1b)
 
 ## Testing
 
