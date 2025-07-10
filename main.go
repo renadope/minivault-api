@@ -91,8 +91,3 @@ func ensureLogDirectoryExists() error {
 	return nil
 
 }
-
-//Improvement notes:
-//Logging to a server and not local filesystem, we can use rabbitmq/kafka to do this and handle it in a background job
-//More detailed logs, with error in the logs whether it failed at Prompt, or Response generation or in general any other related errors
-//Add request IDs for tracing
