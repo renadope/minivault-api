@@ -78,7 +78,7 @@ Returns a streaming text response with tokens appearing in real-time.
 The API supports command-line configuration:
 
 ```bash
-go run . -port=8080 -llm-url="http://localhost:11434" -llm-model="mistral:7b"
+go run . -port=8080 -llm-url="http://localhost:11434" -llm-name="mistral:7b"
 ```
 
 **Available flags:**
