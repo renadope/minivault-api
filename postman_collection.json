@@ -1,0 +1,182 @@
+{
+  "info": {
+    "name": "MiniVault API",
+    "description": "Local REST API for ModelVault take-home project with LLM integration",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:4000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Generate Response (JSON)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"prompt\": \"Write a short poem about artificial intelligence\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/generate",
+          "host": ["{{base_url}}"],
+          "path": ["generate"]
+        },
+        "description": "Generate a complete response using local LLM. Returns JSON format with full response after generation completes."
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"Write a short poem about artificial intelligence\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/generate",
+              "host": ["{{base_url}}"],
+              "path": ["generate"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n    \"response\": \"In circuits deep and data streams,\\nArtificial minds pursue their dreams.\\nWith algorithms swift and bright,\\nThey process thoughts at speed of light.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Generate Response (Streaming)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"prompt\": \"Tell me an interesting fact about space\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/generate-stream",
+          "host": ["{{base_url}}"],
+          "path": ["generate-stream"]
+        },
+        "description": "Generate a streaming response using local LLM. Returns plain text that appears token by token in real-time."
+      },
+      "response": [
+        {
+          "name": "Streaming Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"Tell me an interesting fact about space\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/generate-stream",
+              "host": ["{{base_url}}"],
+              "path": ["generate-stream"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "text",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "Here's a fascinating space fact: A single day on Venus is longer than its entire year! Venus rotates so slowly on its axis that one Venusian day equals 243 Earth days, while it only takes 225 Earth days to orbit the Sun."
+        }
+      ]
+    },
+    {
+      "name": "Error Case - Empty Prompt",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"prompt\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/generate",
+          "host": ["{{base_url}}"],
+          "path": ["generate"]
+        },
+        "description": "Test error handling for empty prompts"
+      },
+      "response": [
+        {
+          "name": "Error Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/generate",
+              "host": ["{{base_url}}"],
+              "path": ["generate"]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "text",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "prompt cannot be empty"
+        }
+      ]
+    }
+  ]
+}
